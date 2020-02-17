@@ -2,8 +2,8 @@ local mvec3_dist_sq = mvector3.distance_sq
 local ignored_states = { arrested = 1, bleed_out = 1, fatal = 1, incapacitated = 1 }
 
 local PS_get_intimidation_action_orig = PlayerStandard._get_intimidation_action
-function PlayerStandard:_get_intimidation_action(prime_target, char_table, amount, primary_only, detect_only, secondary)
-	local voice_type, new_action, plural = PS_get_intimidation_action_orig(self, prime_target, char_table, amount, primary_only, detect_only, secondary)
+function PlayerStandard:_get_intimidation_action(prime_target, primary_only, detect_only, secondary, ...)
+	local voice_type, new_action, plural = PS_get_intimidation_action_orig(self, prime_target, primary_only, detect_only, secondary, ...)
 	if voice_type == "revive" or secondary or detect_only then
 		return voice_type, plural, prime_target
 	end
