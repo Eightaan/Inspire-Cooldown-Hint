@@ -1,12 +1,10 @@
 {
-    "name" : "Inspire cooldown timer",
+	"name" : "Inspire Cooldown Timer",
+	"description" : "Requires Beardlib",
 	"author" : "Eightan",
-    "description" : "Display the remaining time on inspire cooldown in a hint message.",
-    "blt_version" : 2,
-	"color" : "40 40 40",
-	"version" : "1.2.1",
-    "image" : "_icon.png",
-    "hooks":[  
-		{  "hook_id": "lib/units/beings/player/states/playerstandard", "script_path": "InspireCooldown.lua"}
-    ]
+	"version" : "1.0",
+	"image" : "icon.png",
+	"color" : "0.15 0.15 0.15",
+	"blt_version" : 2,
+	"contact": "\n https://steamcommunity.com/id/Eightan/",
 }
