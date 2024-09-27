@@ -17,7 +17,7 @@ function PlayerStandard:_get_intimidation_action(prime_target, primary_only, det
 			if not ignored_states[current_state_name] then
 				local rally_skill_data = self._ext_movement:rally_skill_data()
 				if rally_skill_data and mvec3_dist_sq(self._pos, record.m_pos) < rally_skill_data.range_sq then
-					local needs_revive
+					local needs_revive = false
 					if prime_target.unit:base().is_husk_player then
 						local is_arrested = prime_target.unit:movement():current_state_name() == "arrested"
 						needs_revive = prime_target.unit:interaction():active() and prime_target.unit:movement():need_revive() and not is_arrested
@@ -30,7 +30,7 @@ function PlayerStandard:_get_intimidation_action(prime_target, primary_only, det
 						local remaining_cooldown = managers.player:get_disabled_cooldown_time("cooldown", "long_dis_revive") + 1
 						if remaining_cooldown > 0 then
 							remaining_cooldown = remaining_cooldown - Application:time()
-							managers.hud:show_hint({ text = string.format("Inspire still has a cooldown of %.f seconds", remaining_cooldown) })						
+							managers.hud:show_hint({ text = string.format("Inspire still has a cooldown of %.f seconds", remaining_cooldown) })
 						end				
 					end			
 				end			
